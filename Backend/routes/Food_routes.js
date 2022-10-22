@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const Book = require("../model/Book");
-const booksController = require("../controllers/books-controller");
+const Book = require("../model/Food_skeleton_model");
+const booksController = require("../controllers/Food_CRUD functions");
 
 router.get("/", booksController.getAllBooks);
 router.post("/", booksController.addBook);
