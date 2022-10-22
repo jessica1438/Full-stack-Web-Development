@@ -29,13 +29,13 @@ const getById = async (req, res, next) => {
 };
 
 const addFood = async (req, res, next) => {
-  const { name, author, description, price, available, image } = req.body;
+  const { name, cuisine, ingredients, price, available, image } = req.body;
   let food;
   try {
     food = new Food_skeleton_model({
       name,
-      author,
-      description,
+      cuisine,
+      ingredients,
       price,
       available,
       image,
