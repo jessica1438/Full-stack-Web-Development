@@ -1,38 +1,38 @@
-const Book = require("../model/Food_skeleton_model");
+const Food_skeleton_model = require("../model/Food_skeleton_model");
 
-const getAllBooks = async (req, res, next) => {
-  let books;
+const getAllFood = async (req, res, next) => {
+  let foods;
   try {
-    books = await Book.find();
+    foods = await Food_skeleton_model.find();
   } catch (err) {
     console.log(err);
   }
 
-  if (!books) {
+  if (!foods) {
     return res.status(404).json({ message: "No products found" });
   }
-  return res.status(200).json({ books });
+  return res.status(200).json({ foods });
 };
 
 const getById = async (req, res, next) => {
   const id = req.params.id;
-  let book;
+  let food;
   try {
-    book = await Book.findById(id);
+    food = await Food_skeleton_model.findById(id);
   } catch (err) {
     console.log(err);
   }
-  if (!book) {
-    return res.status(404).json({ message: "No Book found" });
+  if (!food) {
+    return res.status(404).json({ message: "No food found" });
   }
-  return res.status(200).json({ book });
+  return res.status(200).json({ food });
 };
 
-const addBook = async (req, res, next) => {
+const addFood = async (req, res, next) => {
   const { name, author, description, price, available, image } = req.body;
-  let book;
+  let food;
   try {
-    book = new Book({
+    food = new Food_skeleton_model({
       name,
       author,
       description,
@@ -40,26 +40,26 @@ const addBook = async (req, res, next) => {
       available,
       image,
     });
-    await book.save();
+    await food.save();
   } catch (err) {
     console.log(err);
   }
 
-  if (!book) {
-    return res.status(500).json({ message: "Unable To Add" });
+  if (!food) {
+    return res.status(500).json({ message: "Unable To Add Food" });
   }
-  return res.status(201).json({ book });
+  return res.status(201).json({ food });
 };
 
-const updateBook = async (req, res, next) => {
+const updateFood = async (req, res, next) => {
   const id = req.params.id;
-  const { name, author, description, price, available, image } = req.body;
+  const { name, cuisine, ingredients, price, available, image } = req.body;
   let book;
   try {
-    book = await Book.findByIdAndUpdate(id, {
+    book = await Food_skeleton_model.findByIdAndUpdate(id, {
       name,
-      author,
-      description,
+      cuisine,
+      ingredients,
       price,
       available,
       image,
@@ -74,11 +74,11 @@ const updateBook = async (req, res, next) => {
   return res.status(200).json({ book });
 };
 
-const deleteBook = async (req, res, next) => {
+const deleteFood = async (req, res, next) => {
   const id = req.params.id;
   let book;
   try {
-    book = await Book.findByIdAndRemove(id);
+    book = await Food_skeleton_model.findByIdAndRemove(id);
   } catch (err) {
     console.log(err);
   }
@@ -88,8 +88,8 @@ const deleteBook = async (req, res, next) => {
   return res.status(200).json({ message: "Product Successfully Deleted" });
 };
 
-exports.getAllBooks = getAllBooks;
-exports.addBook = addBook;
+exports.getAllFood = getAllFood;
+exports.addFood = addFood;
 exports.getById = getById;
-exports.updateBook = updateBook;
-exports.deleteBook = deleteBook;
+exports.updateFood = updateFood;
+exports.deleteFood = deleteFood;

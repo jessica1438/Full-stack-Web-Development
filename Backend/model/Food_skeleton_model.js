@@ -7,11 +7,11 @@ const bookSchema = new Schema({
     type: String,
     required: true,
   },
-  author: {
+  cuisine: {
     type: String,
     required: true,
   },
-  description: {
+  ingredients: {
     type: String,
     required: true,
   },
@@ -28,6 +28,6 @@ const bookSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("Book", bookSchema);
+module.exports = mongoose.model("Food_skeleton_model", bookSchema);
 
 // books
