@@ -1,4 +1,4 @@
-const Food_skeleton_model = require("../model/Food_skeleton_model");
+const Food_skeleton_model = require('../model/Food_skeleton_model');
 
 const getAllFood = async (req, res, next) => {
   let foods;
@@ -9,7 +9,7 @@ const getAllFood = async (req, res, next) => {
   }
 
   if (!foods) {
-    return res.status(404).json({ message: "No products found" });
+    return res.status(404).json({ message: 'No products found' });
   }
   return res.status(200).json({ foods });
 };
@@ -23,7 +23,7 @@ const getById = async (req, res, next) => {
     console.log(err);
   }
   if (!food) {
-    return res.status(404).json({ message: "No food found" });
+    return res.status(404).json({ message: 'No food found' });
   }
   return res.status(200).json({ food });
 };
@@ -46,7 +46,7 @@ const addFood = async (req, res, next) => {
   }
 
   if (!food) {
-    return res.status(500).json({ message: "Unable To Add Food" });
+    return res.status(500).json({ message: 'Unable To Add Food' });
   }
   return res.status(201).json({ food });
 };
@@ -69,7 +69,7 @@ const updateFood = async (req, res, next) => {
     console.log(err);
   }
   if (!book) {
-    return res.status(404).json({ message: "Unable To Update By this ID" });
+    return res.status(404).json({ message: 'Unable To Update By this ID' });
   }
   return res.status(200).json({ book });
 };
@@ -83,9 +83,9 @@ const deleteFood = async (req, res, next) => {
     console.log(err);
   }
   if (!book) {
-    return res.status(404).json({ message: "Unable To Delete By this ID" });
+    return res.status(404).json({ message: 'Unable To Delete By this ID' });
   }
-  return res.status(200).json({ message: "Product Successfully Deleted" });
+  return res.status(200).json({ message: 'Product Successfully Deleted' });
 };
 
 exports.getAllFood = getAllFood;

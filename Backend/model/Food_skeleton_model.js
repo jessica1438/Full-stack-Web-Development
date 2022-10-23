@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
@@ -28,6 +28,5 @@ const foodSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("Food_skeleton_model", foodSchema);
+module.exports = mongoose.model('Food_skeleton_model', foodSchema);
 
-// books
