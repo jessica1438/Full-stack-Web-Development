@@ -1,41 +1,33 @@
-import {
-  Button,
-  Checkbox,
-  FormControlLabel,
-  FormLabel,
-  TextField,
-  Typography,
-} from "@mui/material";
-import { Box } from "@mui/system";
-import axios from "axios";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {Button,Checkbox,FormControlLabel,FormLabel,TextField} from "@mui/material"
+import { Box } from "@mui/system"
+import axios from "axios"
+import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
-const AddBook = () => {
+const AddFood = () => {
   const history = useNavigate();
   const [inputs, setInputs] = useState({
     name: "",
-    description: "",
+    cuisine: "",
     price: "",
-    author: "",
-
+    ingredients: "",
     image: "",
-  });
-  const [checked, setChecked] = useState(false);
+  })
+
+  const [checked, setChecked] = useState(false)
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
-    }));
-    // console.log(e.target.name, "Value", e.target.value);
-  };
+    }))
+  }
 
   const sendRequest = async () => {
     await axios
-      .post("http://localhost:5000/books", {
+      .post("http://localhost:5000/food", {
         name: String(inputs.name),
-        author: String(inputs.author),
-        description: String(inputs.description),
+        cuisine: String(inputs.author),
+        ingredients: String(inputs.description),
         price: Number(inputs.price),
         image: String(inputs.image),
         available: Boolean(checked),
@@ -46,7 +38,7 @@ const AddBook = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputs, checked);
-    sendRequest().then(() => history("/books"));
+    sendRequest().then(() => history("/food"));
   };
 
   return (
@@ -71,7 +63,7 @@ const AddBook = () => {
           variant="outlined"
           name="name"
         />
-        <FormLabel>Author</FormLabel>
+        <FormLabel>Cuisine</FormLabel>
         <TextField
           value={inputs.author}
           onChange={handleChange}
@@ -80,7 +72,7 @@ const AddBook = () => {
           variant="outlined"
           name="author"
         />
-        <FormLabel>Description</FormLabel>
+        <FormLabel>Ingredients</FormLabel>
         <TextField
           value={inputs.description}
           onChange={handleChange}
@@ -116,11 +108,11 @@ const AddBook = () => {
         />
 
         <Button variant="contained" type="submit">
-          Add Book
+          Add Food Recipe ( YUMM!! )
         </Button>
       </Box>
     </form>
   );
 };
 
-export default AddBook;
+export default AddFood;
