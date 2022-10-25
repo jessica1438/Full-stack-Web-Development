@@ -26,8 +26,8 @@ const AddFood = () => {
     await axios
       .post("http://localhost:5000/food", {
         name: String(inputs.name),
-        cuisine: String(inputs.author),
-        ingredients: String(inputs.description),
+        cuisine: String(inputs.cuisine),
+        ingredients: String(inputs.ingredients),
         price: Number(inputs.price),
         image: String(inputs.image),
         available: Boolean(checked),
@@ -65,21 +65,21 @@ const AddFood = () => {
         />
         <FormLabel>Cuisine</FormLabel>
         <TextField
-          value={inputs.author}
+          value={inputs.cuisine}
           onChange={handleChange}
           margin="normal"
           fullWidth
           variant="outlined"
-          name="author"
+          name="cuisine"
         />
         <FormLabel>Ingredients</FormLabel>
         <TextField
-          value={inputs.description}
+          value={inputs.ingredients}
           onChange={handleChange}
           margin="normal"
           fullWidth
           variant="outlined"
-          name="description"
+          name="ingredients"
         />
         <FormLabel>Price</FormLabel>
         <TextField

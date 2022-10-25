@@ -8,7 +8,7 @@ const Home = () => {
       <Box display="flex" flexDirection="column" alignItems="center">
         <Button
           LinkComponent={Link}
-          to="/books"
+          to="/showRecipe"
           sx={{ marginTop: 15, background: "orangered" }}
           variant="contained">
           <Typography variant="h3">View All Recipes</Typography>
