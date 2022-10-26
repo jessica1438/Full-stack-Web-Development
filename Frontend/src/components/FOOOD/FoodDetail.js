@@ -15,10 +15,11 @@ const FoodDetail = () => {
   const id = useParams().id;
   const [checked, setChecked] = useState(false);
   const history = useNavigate();
+
   useEffect(() => {
     const fetchHandler = async () => {
       await axios
-        .get(`http://localhost:5000/food/${id}`)
+        .get(`http://localhost:5000/showRecipe/${id}`)
         .then((res) => res.data)
         .then((data) => setInputs(data.food));
     };
@@ -27,7 +28,7 @@ const FoodDetail = () => {
 
   const sendRequest = async () => {
     await axios
-      .put(`http://localhost:5000/food/${id}`, {
+      .put(`http://localhost:5000/showRecipe/${id}`, {
         name: String(inputs.name),
         cuisine: String(inputs.cuisine),
         ingredients: String(inputs.ingredients),
@@ -39,7 +40,7 @@ const FoodDetail = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    sendRequest().then(() => history("/food"));
+    sendRequest().then(() => history("/showRecipe"));
   };
   const handleChange = (e) => {
     setInputs((prevState) => ({
@@ -79,7 +80,7 @@ const FoodDetail = () => {
               margin="normal"
               fullWidth
               variant="outlined"
-              name="author"
+              name="cuisine"
             />
             <FormLabel>Ingredients</FormLabel>
             <TextField
@@ -88,7 +89,7 @@ const FoodDetail = () => {
               margin="normal"
               fullWidth
               variant="outlined"
-              name="description"
+              name="ingredients"
             />
             <FormLabel>Price</FormLabel>
             <TextField
@@ -129,4 +130,5 @@ const FoodDetail = () => {
   );
 };
 
-export default FoodDetail;
+export default FoodDetail; 
+

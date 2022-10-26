@@ -18,7 +18,7 @@ function App() {
           <Route path="/addRecipe" element={<AddFood />} exact />
           <Route path="/showRecipe" element={<Foods />} exact />
           <Route path="/about" element={<About />} exact />
-          <Route path="/food/:id" element={<FoodDetail />} exact />
+          <Route path="/showRecipe/:id" element={<FoodDetail />} exact />
         </Routes>
       </main>
     </React.Fragment>
