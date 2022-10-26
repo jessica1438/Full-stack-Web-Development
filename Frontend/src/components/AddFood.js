@@ -11,6 +11,7 @@ const AddFood = () => {
     cuisine: "",
     price: "",
     ingredients: "",
+    
     image: "",
   })
 
@@ -24,7 +25,7 @@ const AddFood = () => {
 
   const sendRequest = async () => {
     await axios
-      .post("http://localhost:5000/food", {
+      .post("http://localhost:5000/showRecipe", {
         name: String(inputs.name),
         cuisine: String(inputs.cuisine),
         ingredients: String(inputs.ingredients),
@@ -38,7 +39,7 @@ const AddFood = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputs, checked);
-    sendRequest().then(() => history("/food"));
+    sendRequest().then(() => history("/showRecipe"));
   };
 
   return (

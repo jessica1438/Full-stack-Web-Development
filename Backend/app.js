@@ -7,7 +7,7 @@ const app = express(); // variable app recieves all the functionalities of expre
 // Middlewares
 app.use(express.json());
 app.use(cors());
-app.use("/food", router); // localhost:5000/food
+app.use("/showRecipe", router); // localhost:5000/food
 
 mongoose
   .connect("mongodb+srv://dbuser:WxwAFpW3ff85ipi@cluster0.zp619fg.mongodb.net/?retryWrites=true&w=majority")
