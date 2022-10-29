@@ -17,10 +17,10 @@ const Food = (props) => {
   return (
     <div className="card">
       <img src={image} alt={name} />
-      <article>{name}</article>
-      <h3>{cuisine}</h3>
-      <p>{ingredients}</p>
-      <h3>Rs {price}</h3>
+      <article><h4>Name</h4>{name}</article>
+      <article><h4>Cuisine  </h4>{cuisine}</article>
+      <article><p><h4>Ingredients </h4>{ingredients}</p></article>
+      <article><h4>Price </h4>Rs {price}</article>
       <Button LinkComponent={Link} to={`/showRecipe/${_id}`} sx={{ mt: "auto" }}>
         Update Recipe
       </Button>
