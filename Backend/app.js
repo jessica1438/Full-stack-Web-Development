@@ -12,6 +12,8 @@ const port = process.env.PORT || 5000;
 // Middlewares
 app.use(express.json());
 app.use(cors());
+app.get('/', (req, res) => { res.json('Hello from Express!')})
+
 app.use("/showRecipe", router); // localhost:5000/food
 
 mongoose
@@ -19,3 +21,6 @@ mongoose
   .then(() => console.log("Connected To Database"))
   .then(() => {app.listen(port);})
   .catch((err) => console.log(err));
+
+
+  
