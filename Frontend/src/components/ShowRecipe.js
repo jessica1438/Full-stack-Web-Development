@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./FoodStyle.css";
 import axios from "axios";
 import FoodCard from "./FoodCard";
-const URL = "http://localhost:5000/showRecipe";
+const URL = "https://foodrecipemern.herokuapp.com/showRecipe";
 
 const fetchHandler = async () => {
   return await axios.get(URL).then((res) => res.data);

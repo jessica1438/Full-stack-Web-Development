@@ -25,7 +25,7 @@ const AddFood = () => {
 
   const sendRequest = async () => {
     await axios
-      .post("http://localhost:5000/showRecipe", {
+      .post("https://foodrecipemern.herokuapp.com/showRecipe", {
         name: String(inputs.name),
         cuisine: String(inputs.cuisine),
         ingredients: String(inputs.ingredients),
