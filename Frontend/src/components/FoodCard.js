@@ -9,7 +9,7 @@ const Food = (props) => {
   const { _id, name, cuisine, ingredients, price, image } = props.food;
   const deleteHandler = async () => {
     await axios
-      .delete(`https://foodrecipemern.herokuapp.com/${_id}`)
+      .delete(`https://foodrecipemern.herokuapp.com/showRecipe/${_id}`)
       .then((res) => res.data)
       .then(() => history("/"))
       .then(() => history("/showRecipe"))}
