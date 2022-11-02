@@ -19,7 +19,7 @@ import {
     useEffect(() => {
       const fetchHandler = async () => {
         await axios
-          .get(`http://localhost:5000/showRecipe/${id}`)
+          .get(`https://foodrecipemern.herokuapp.com/showRecipe/${id}`)
           .then((res) => res.data)
           .then((data) => setInputs(data.food));
       };
@@ -28,7 +28,7 @@ import {
   
     const sendRequest = async () => {
       await axios
-        .put(`http://localhost:5000/showRecipe/${id}`, {
+        .put(`https://foodrecipemern.herokuapp.com/showRecipe/${id}`, {
           name: String(inputs.name),
           cuisine: String(inputs.cuisine),
           ingredients: String(inputs.ingredients),
