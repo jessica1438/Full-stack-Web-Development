@@ -12,7 +12,7 @@ const port = process.env.PORT || 5000;
 // Middlewares
 app.use(express.json());
 app.use(cors());
-app.get('/', (req, res) => { res.send('Hello from Express!')})
+//app.get('/', (req, res) => { res.send('Hello from Express!')})
 
 app.use("/showRecipe", router); // localhost:5000/food
 
