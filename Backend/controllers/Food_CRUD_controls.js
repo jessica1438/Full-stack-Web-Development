@@ -76,13 +76,13 @@ const updateFood = async (req, res, next) => {
 
 const deleteFood = async (req, res, next) => {
   const id = req.params.id;
-  let book;
+  let food;
   try {
-    book = await Food_skeleton_model.findByIdAndRemove(id);
+    food = await Food_skeleton_model.findByIdAndRemove(id);
   } catch (err) {
     console.log(err);
   }
-  if (!book) {
+  if (!food) {
     return res.status(404).json({ message: 'Unable To Delete By this ID' });
   }
   return res.status(200).json({ message: 'Product Successfully Deleted' });
